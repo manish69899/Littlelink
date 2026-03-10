@@ -9,54 +9,107 @@
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 /* Only include brand-specific button styling here */
 .button,button {
-  color:var(--button-text,#000000);
-  background-color:var(--button-background,transparent);
+    color:var(--button-text,#000000);
+    background-color:var(--button-background,transparent);
     border:var(--button-border,none);
-    transition:filter 0.2s ease,transform 0.2s ease;
-    
-    /* --- ARYAN'S ADVANCED 3D & SHINE EFFECTS START --- */
-    box-shadow: 0 6px 0px rgba(0, 0, 0, 0.25), 0 10px 15px rgba(0, 0, 0, 0.2); /* 3D pop-out shadow */
+
+    /* --- ARYAN'S PREMIUM ULTRA-3D EFFECT (BUG-FREE) --- */
     position: relative;
     overflow: hidden;
-    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Smooth bouncy effect */
-    /* --- ARYAN'S ADVANCED 3D & SHINE EFFECTS END --- */
+    z-index: 1;
+    /* Smoother layered shadows for realistic 3D depth + inner glass reflection */
+    box-shadow: 
+      inset 0 1px 1px rgba(255, 255, 255, 0.3), /* Top glass highlight */
+      inset 0 -2px 5px rgba(0, 0, 0, 0.1),      /* Bottom inner shading */
+      0 6px 0px rgba(0, 0, 0, 0.2),             /* 3D Base pop-out */
+      0 10px 20px rgba(0, 0, 0, 0.15);          /* Soft outer ambient shadow */
+    /* Single, clean transition to avoid buggy jumps */
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 
-/* Global Button Hover Effect
+/* Global Button Hover Effect (FOR PC / LAPTOP USERS)
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 .button:hover,button:hover {
-    filter:brightness(90%);
-    transform:translateY(-1px);
-    
-    /* --- ARYAN'S ADVANCED HOVER EFFECTS START --- */
-    filter: brightness(115%) contrast(105%); /* Glowing futuristic look */
-    transform: translateY(-5px) scale(1.02); /* Bounces up and scales slightly */
-    box-shadow: 0 10px 0px rgba(0, 0, 0, 0.2), 0 15px 25px rgba(0, 0, 0, 0.4); /* Deeper 3D shadow on hover */
-    /* --- ARYAN'S ADVANCED HOVER EFFECTS END --- */
+    /* Bounces up slightly and increases shadow depth for 3D feel */
+    transform: translateY(-4px);
+    box-shadow: 
+      inset 0 1px 1px rgba(255, 255, 255, 0.4),
+      inset 0 -2px 5px rgba(0, 0, 0, 0.1),
+      0 10px 0px rgba(0, 0, 0, 0.2),
+      0 15px 25px rgba(0, 0, 0, 0.25);
+    filter: brightness(110%) saturate(110%);
 }
 
-/* --- NEW: BUTTON CLICK (ACTIVE) EFFECT --- */
+/* --- BUTTON CLICK (ACTIVE) EFFECT --- */
 .button:active, button:active {
-    transform: translateY(4px) scale(0.98); /* Real mechanical button press feel */
-    box-shadow: 0 2px 0px rgba(0, 0, 0, 0.2), 0 4px 8px rgba(0, 0, 0, 0.2);
+    /* Pushes down physically */
+    transform: translateY(4px) !important;
+    box-shadow: 
+      inset 0 2px 4px rgba(0, 0, 0, 0.2),
+      0 2px 0px rgba(0, 0, 0, 0.2),
+      0 4px 8px rgba(0, 0, 0, 0.1) !important;
     filter: brightness(95%);
+    transition: all 0.1s ease; /* Fast snap on click */
 }
 
-/* --- NEW: GLASS SHINE / GLOSSY SWEEP EFFECT --- */
-.button::before, button::before {
+/* --- GLASS SHINE / GLOSSY SWEEP EFFECT (BASE SETUP) --- */
+.button::after, button::after {
     content: '';
     position: absolute;
     top: 0;
-    left: -150%;
-    width: 100%;
+    left: -100%;
+    width: 50%;
     height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+    background: linear-gradient(to right, rgba(255,255,255,0) 0%, rgba(255,255,255,0.4) 50%, rgba(255,255,255,0) 100%);
     transform: skewX(-25deg);
-    transition: left 0.6s ease-in-out;
+    z-index: -1; /* Keeps shine behind the text so text remains clear */
+    transition: left 0.6s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
-.button:hover::before, button:hover::before {
-    left: 150%; /* Sweeps the shine across the button */
+
+/* Hover shine for PC users */
+@media (hover: hover) {
+    .button:hover::after, button:hover::after {
+        left: 200%; /* Sweeps across smoothly when hovered */
+    }
 }
+
+/* ======================================================================= */
+/* --- ARYAN'S MOBILE-FRIENDLY AUTO ANIMATIONS START --- */
+/* ======================================================================= */
+/* Ye code detect karega ki user touch screen (mobile) par hai */
+@media (hover: none) {
+    
+    /* Mobile par buttons automatically chamkenge (Glass sweep every 4s) */
+    .button::after, button::after {
+        animation: mobileAutoShine 4s infinite cubic-bezier(0.25, 0.8, 0.25, 1);
+    }
+    
+    /* Mobile par buttons automatically halke-halke float (breathe) karenge */
+    .button, button {
+        animation: mobileBreathe 4s infinite ease-in-out;
+    }
+
+    @keyframes mobileAutoShine {
+        0% { left: -100%; }
+        20% { left: 200%; }
+        100% { left: 200%; } /* Thodi der rukega chamakne ke baad */
+    }
+
+    @keyframes mobileBreathe {
+        0%, 100% { 
+            transform: translateY(0); 
+            box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.3), inset 0 -2px 5px rgba(0, 0, 0, 0.1), 0 6px 0px rgba(0, 0, 0, 0.2), 0 10px 20px rgba(0, 0, 0, 0.15); 
+        }
+        50% { 
+            transform: translateY(-2px); 
+            box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.35), inset 0 -2px 5px rgba(0, 0, 0, 0.1), 0 8px 0px rgba(0, 0, 0, 0.2), 0 14px 22px rgba(0, 0, 0, 0.2); 
+        }
+    }
+}
+/* ======================================================================= */
+/* --- ARYAN'S MOBILE-FRIENDLY AUTO ANIMATIONS END --- */
+/* ======================================================================= */
+
 
 /* Button Icons
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
