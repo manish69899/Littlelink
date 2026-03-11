@@ -244,15 +244,14 @@ footer {
    FAST & CLEAN SLIDE-UP ANIMATIONS (Avatar, Name, Description ONLY)
    ========================================================================== */
 
-/* Very fast, clean slide up from the bottom */
 @keyframes fastSlideUp {
     0% {
         opacity: 0;
-        transform: translateY(60px); /* Niche se start hoga */
+        transform: translateY(60px);
     }
     100% {
         opacity: 1;
-        transform: translateY(0); /* Apni normal jagah par aayega */
+        transform: translateY(0);
     }
 }
 
@@ -267,15 +266,15 @@ footer {
     margin-left: auto;
     margin-right: auto;
     display: block;
-    
-    /* Green Border */
     border: 4px solid #4ade80; 
     padding: 3px;
     background-color: #ffffff;
     
-    /* Fast Slide Up */
-    opacity: 0;
-    animation: fastSlideUp 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    /* Optimization for smooth animation */
+    will-change: transform, opacity;
+    
+    /* Forwards ki jagah BOTH kar diya */
+    animation: fastSlideUp 0.5s cubic-bezier(0.16, 1, 0.3, 1) both;
 }
 
 /* --- Premium Profile Name --- */
@@ -284,14 +283,15 @@ footer {
     font-weight: 800;
     margin-bottom: 0.2rem;
     
-    /* Gradient Color */
+    /* Missing compatibility properties add kar diye */
     background: linear-gradient(90deg, #2457F5, #7AB8FF);
     -webkit-background-clip: text;
+    background-clip: text; 
     -webkit-text-fill-color: transparent;
+    color: transparent;
     
-    /* Fast Slide Up (Slightly after avatar) */
-    opacity: 0;
-    animation: fastSlideUp 0.5s cubic-bezier(0.16, 1, 0.3, 1) 0.1s forwards;
+    will-change: transform, opacity;
+    animation: fastSlideUp 0.5s cubic-bezier(0.16, 1, 0.3, 1) 0.1s both;
 }
 
 /* --- Premium Profile Description --- */
@@ -302,16 +302,17 @@ footer {
     margin-bottom: 2rem;
     line-height: 1.6;
     
-    /* Fast Slide Up (Slightly after name) */
-    opacity: 0;
-    animation: fastSlideUp 0.5s cubic-bezier(0.16, 1, 0.3, 1) 0.2s forwards;
+    will-change: transform, opacity;
+    animation: fastSlideUp 0.5s cubic-bezier(0.16, 1, 0.3, 1) 0.2s both;
 }
 
 /* Dark Mode Adjustments */
 :root.theme-dark .profile-name {
     background: linear-gradient(90deg, #7AB8FF, #ffffff);
     -webkit-background-clip: text;
+    background-clip: text; 
     -webkit-text-fill-color: transparent;
+    color: transparent;
 }
 :root.theme-dark .profile-desc {
     color: #cccccc;
