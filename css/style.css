@@ -12,21 +12,21 @@ html {
 }
 
 :root {
-  font-size:16px;           /* Using a 1.25 modular scale for typography */
-  --scale-0:1rem;           /* 16px */
-  --scale-1:1.25rem;        /* 20px */
-  --scale-2:1.563rem;       /* 25px */
-  --scale-3:1.953rem;       /* 31px */
-  --scale-4:2.441rem;       /* 39px */
-  --scale-5:3.052rem;       /* 49px */
+  font-size:16px;           
+  --scale-0:1rem;           
+  --scale-1:1.25rem;        
+  --scale-2:1.563rem;       
+  --scale-3:1.953rem;       
+  --scale-4:2.441rem;       
+  --scale-5:3.052rem;       
 
   /* Spacing units */
-  --spacing-xs:0.5rem;      /* 8px */
-  --spacing-s:1rem;         /* 16px */
-  --spacing-m:1.5rem;       /* 24px */
-  --spacing-l:2rem;         /* 32px */
-  --spacing-xl:3rem;        /* 48px */
-  --spacing-xxl:4rem;       /* 64px */
+  --spacing-xs:0.5rem;      
+  --spacing-s:1rem;         
+  --spacing-m:1.5rem;       
+  --spacing-l:2rem;         
+  --spacing-xl:3rem;        
+  --spacing-xxl:4rem;       
 }
 
 /* Grid
@@ -34,7 +34,7 @@ html {
 .container {
     position:relative;
     width:100%;
-    max-width:37.5rem;                  /* 600px */
+    max-width:37.5rem;                  
     text-align:center;
     margin:0 auto;
     padding:var(--spacing-xl) var(--spacing-m) 0 var(--spacing-m);
@@ -50,7 +50,7 @@ html {
     box-sizing:border-box;
 }
 .container-left p {
-    margin-bottom: 1rem;                /* 16px space between paragraphs */
+    margin-bottom: 1rem;                
 }
 .column {
     position:center;
@@ -58,16 +58,15 @@ html {
     float:center;
     box-sizing:border-box;
 }
-/* For devices larger than 400px */
-@media (min-width:25rem) {            /* 400px */
+
+@media (min-width:25rem) {            
     .container {
         width:85%;
         padding-left:0;
         padding-right:0;
     }
 }
-/* For devices larger than 550px */
-@media (min-width:34.375rem) {        /* 550px */
+@media (min-width:34.375rem) {        
     .container {
         width:80%;
     }
@@ -90,7 +89,6 @@ body {
     font-size:var(--scale-1);
     font-weight:400;
     line-height:1.6;
-    /* Added smooth transition for theme switching */
     transition: background-color 0.5s ease, color 0.5s ease;
 }
 
@@ -98,7 +96,7 @@ body {
   –––––––––––––––––––––––––––––––––––––––––––––––––– */
 h1 {
     margin:0 0 var(--spacing-m) 0;
-    font-size:var(--scale-5);           /* ~49px */
+    font-size:var(--scale-5);           
     font-weight:800;
     line-height:1.1;
     letter-spacing:-0.02em;
@@ -117,7 +115,6 @@ h1 {
 a {
     color:#2457F5;
     text-decoration:underline;
-    /* Added smooth transition */
     transition: color 0.3s ease;
 }
 a:hover {
@@ -127,7 +124,7 @@ a:hover {
 /* Avatar
   –––––––––––––––––––––––––––––––––––––––––––––––––– */
 .avatar {
-    width: 8rem;             /* 128px */
+    width: 8rem;             
     height: 8rem;
     border-radius: 50%;
     object-fit: cover;
@@ -136,7 +133,6 @@ a:hover {
     margin-left: auto;
     margin-right: auto;
     display: block;
-    /* Added smooth hover animation */
     transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s ease;
 }
 .avatar:hover {
@@ -144,11 +140,8 @@ a:hover {
     box-shadow: 0 10px 25px rgba(0,0,0,0.1);
 }
 
-/* Modifier for no avatar rounding */
 .avatar--none { border-radius: 0%; }
-/* Modifier for rounded avatar */
 .avatar--rounded { border-radius: 50%; }
-/* Modifier for slightly rounded corners */
 .avatar--soft { border-radius: 0.5rem; }
 
 /* Buttons
@@ -157,8 +150,8 @@ a:hover {
     display:inline-flex;
     align-items:center;
     justify-content:center;
-    width:18.75rem;                 /* 300px */
-    min-height:3rem;                /* 48px */
+    width:18.75rem;                 
+    min-height:3rem;                
     padding:0.75rem 1rem;
     font-size:1.125rem;
     font-weight:700;
@@ -174,21 +167,17 @@ a:hover {
     margin-bottom:1rem;
     text-align:center;
     line-height:1.3;
-    
-    /* ADDED: Smooth transitions and base shadow for modern feel */
     transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
 }
 
 .button:hover,button:hover {
     color:var(--button-text);
-    /* ADDED: Smooth lift effect on hover */
     transform: translateY(-3px);
     box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
 }
 
 .button:active, button:active {
-    /* ADDED: Press effect */
     transform: translateY(0);
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
 }
@@ -200,7 +189,6 @@ a:hover {
     height:1.25rem;
     margin-right:0.5rem;
     flex-shrink:0;
-    /* Added transition to icon if needed */
     transition: transform 0.3s ease;
 }
 .button:hover .icon {
@@ -209,7 +197,7 @@ a:hover {
 
 /* Footer */
 footer {
-    margin:var(--spacing-xxl) 0;            /* 4rem (64px) top and bottom */
+    margin:var(--spacing-xxl) 0;            
     font-size:var(--scale-0);
 }
 
@@ -232,7 +220,6 @@ footer {
 :root.theme-dark a:not(.button):hover {
     color:#7AB8FF;
 }
-/* Updated Dark theme button shadows to match dark mode */
 :root.theme-dark .button, :root.theme-dark button {
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
 }
@@ -240,7 +227,6 @@ footer {
     box-shadow: 0 8px 15px rgba(0, 0, 0, 0.5);
 }
 
-/* Auto theme */
 :root.theme-auto {
     color-scheme:light dark;
 }
@@ -269,27 +255,12 @@ footer {
 
 /* Responsive Typography
   –––––––––––––––––––––––––––––––––––––––––––––––––– */
-@media (max-width:34.375rem) {            /* 550px */
+@media (max-width:34.375rem) {            
     h1 { font-size:var(--scale-4); }
     body { font-size:var(--scale-0); }
     .container p { font-size:var(--scale-0); }
     .avatar { margin-bottom:var(--spacing-m); }
     footer { margin:var(--spacing-xl) 0; }
-}
-
-/* Privacy Page Styles
-  –––––––––––––––––––––––––––––––––––––––––––––––––– */
-nav { margin:var(--spacing-l) 0; text-align:left; }
-section { margin:var(--spacing-xl) 0; text-align:left; }
-h2 { font-size:var(--scale-3); font-weight:700; margin-bottom:var(--spacing-m); }
-h3 { font-size:var(--scale-2); font-weight:600; margin:var(--spacing-l) 0 var(--spacing-s) 0; }
-ul { list-style:none; padding:0; margin:0 0 var(--spacing-m) 0; }
-ul li { margin-bottom:var(--spacing-xs); }
-
-@media (max-width:34.375rem) {
-    h2 { font-size:var(--scale-2); }
-    h3 { font-size:var(--scale-1); }
-    section { margin:var(--spacing-l) 0; }
 }
 
 /* Font Face Definitions
@@ -306,14 +277,6 @@ ul li { margin-bottom:var(--spacing-xs); }
     font-display:swap;
     font-family:'Open Sans';
     font-style:normal;
-    font-weight:600;
-    src:url('../fonts/open-sans-v34-vietnamese_latin-ext_latin_hebrew_greek-ext_greek_cyrillic-ext_cyrillic-600.eot');
-    src:url('../fonts/open-sans-v34-vietnamese_latin-ext_latin_hebrew_greek-ext_greek_cyrillic-ext_cyrillic-600.eot?#iefix') format('embedded-opentype'),url('../fonts/open-sans-v34-vietnamese_latin-ext_latin_hebrew_greek-ext_greek_cyrillic-ext_cyrillic-600.woff2') format('woff2'),url('../fonts/open-sans-v34-vietnamese_latin-ext_latin_hebrew_greek-ext_greek_cyrillic-ext_cyrillic-600.woff') format('woff'),url('../fonts/open-sans-v34-vietnamese_latin-ext_latin_hebrew_greek-ext_greek_cyrillic-ext_cyrillic-600.ttf') format('truetype'),url('../fonts/open-sans-v34-vietnamese_latin-ext_latin_hebrew_greek-ext_greek_cyrillic-ext_cyrillic-600.svg#OpenSans') format('svg');
-}
-@font-face {
-    font-display:swap;
-    font-family:'Open Sans';
-    font-style:normal;
     font-weight:700;
     src:url('../fonts/open-sans-v34-vietnamese_latin-ext_latin_hebrew_greek-ext_greek_cyrillic-ext_cyrillic-700.eot');
     src:url('../fonts/open-sans-v34-vietnamese_latin-ext_latin_hebrew_greek-ext_greek_cyrillic-ext_cyrillic-700.eot?#iefix') format('embedded-opentype'),url('../fonts/open-sans-v34-vietnamese_latin-ext_latin_hebrew_greek-ext_greek_cyrillic-ext_cyrillic-700.woff2') format('woff2'),url('../fonts/open-sans-v34-vietnamese_latin-ext_latin_hebrew_greek-ext_greek_cyrillic-ext_cyrillic-700.woff') format('woff'),url('../fonts/open-sans-v34-vietnamese_latin-ext_latin_hebrew_greek-ext_greek_cyrillic-ext_cyrillic-700.ttf') format('truetype'),url('../fonts/open-sans-v34-vietnamese_latin-ext_latin_hebrew_greek-ext_greek_cyrillic-ext_cyrillic-700.svg#OpenSans') format('svg');
@@ -325,4 +288,88 @@ ul li { margin-bottom:var(--spacing-xs); }
     font-weight:800;
     src:url('../fonts/open-sans-v34-vietnamese_latin-ext_latin_hebrew_greek-ext_greek_cyrillic-ext_cyrillic-800.eot');
     src:url('../fonts/open-sans-v34-vietnamese_latin-ext_latin_hebrew_greek-ext_greek_cyrillic-ext_cyrillic-800.eot?#iefix') format('embedded-opentype'),url('../fonts/open-sans-v34-vietnamese_latin-ext_latin_hebrew_greek-ext_greek_cyrillic-ext_cyrillic-800.woff2') format('woff2'),url('../fonts/open-sans-v34-vietnamese_latin-ext_latin_hebrew_greek-ext_greek_cyrillic-ext_cyrillic-800.woff') format('woff'),url('../fonts/open-sans-v34-vietnamese_latin-ext_latin_hebrew_greek-ext_greek_cyrillic-ext_cyrillic-800.ttf') format('truetype'),url('../fonts/open-sans-v34-vietnamese_latin-ext_latin_hebrew_greek-ext_greek_cyrillic-ext_cyrillic-800.svg#OpenSans') format('svg');
+}
+
+
+/* ==========================================================================
+   SUPER PREMIUM CUSTOM STYLES & ANIMATIONS
+   ========================================================================== */
+
+/* Page Load Entrance Animation */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Avatar with Green Border & Animation */
+.avatar {
+    opacity: 0;
+    animation: fadeInUp 0.8s ease 0.1s forwards;
+    border: 4px solid #4ade80; /* Smooth green border */
+    padding: 2px;
+}
+
+/* Premium Profile Name Styling (Gradient + Bold) */
+.profile-name {
+    font-size: var(--scale-5);
+    font-weight: 800;
+    margin-bottom: 0.2rem;
+    
+    /* Gradient Effect */
+    background: linear-gradient(90deg, #2457F5, #7AB8FF);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    
+    /* Page Load Animation */
+    opacity: 0;
+    animation: fadeInUp 0.8s ease 0.3s forwards;
+}
+
+/* Premium Profile Description Styling */
+.profile-desc {
+    font-size: 1.125rem;
+    font-weight: 500;
+    color: #555555; /* Soft grey text */
+    margin-bottom: 2rem;
+    line-height: 1.6;
+    
+    /* Page Load Animation */
+    opacity: 0;
+    animation: fadeInUp 0.8s ease 0.5s forwards;
+}
+
+/* Button Stack Animation */
+.button-stack {
+    opacity: 0;
+    animation: fadeInUp 0.8s ease 0.7s forwards;
+}
+
+/* Dark Mode Adjustments for Name and Desc */
+:root.theme-dark .profile-name {
+    background: linear-gradient(90deg, #7AB8FF, #ffffff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+:root.theme-dark .profile-desc {
+    color: #cccccc;
+}
+
+/* Animated Gradient Background for Dark Mode */
+:root.theme-dark body {
+    background: linear-gradient(-45deg, #0f172a, #1e1b4b, #000000, #172554);
+    background-size: 400% 400%;
+    animation: gradientBG 15s ease infinite;
+}
+
+@keyframes gradientBG {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
 }
