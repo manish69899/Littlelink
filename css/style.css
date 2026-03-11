@@ -121,29 +121,6 @@ a:hover {
     color:#083BDA;
 }
 
-/* Avatar
-  –––––––––––––––––––––––––––––––––––––––––––––––––– */
-.avatar {
-    width: 8rem;             
-    height: 8rem;
-    border-radius: 50%;
-    object-fit: cover;
-    background-position: center;
-    margin-bottom: var(--spacing-l);
-    margin-left: auto;
-    margin-right: auto;
-    display: block;
-    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s ease;
-}
-.avatar:hover {
-    transform: scale(1.05);
-    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-}
-
-.avatar--none { border-radius: 0%; }
-.avatar--rounded { border-radius: 50%; }
-.avatar--soft { border-radius: 0.5rem; }
-
 /* Buttons
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 .button,button {
@@ -167,14 +144,14 @@ a:hover {
     margin-bottom:1rem;
     text-align:center;
     line-height:1.3;
-    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    transition: all 0.2s ease-in-out;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
 }
 
 .button:hover,button:hover {
     color:var(--button-text);
-    transform: translateY(-3px);
-    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
 }
 
 .button:active, button:active {
@@ -224,7 +201,7 @@ footer {
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
 }
 :root.theme-dark .button:hover, :root.theme-dark button:hover {
-    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
 }
 
 :root.theme-auto {
@@ -249,7 +226,7 @@ footer {
         box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
     }
     :root.theme-auto .button:hover, :root.theme-auto button:hover {
-        box-shadow: 0 8px 15px rgba(0, 0, 0, 0.5);
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
     }
 }
 
@@ -263,105 +240,84 @@ footer {
     footer { margin:var(--spacing-xl) 0; }
 }
 
-/* Font Face Definitions
-  –––––––––––––––––––––––––––––––––––––––––––––––––– */
-@font-face {
-    font-display:swap;
-    font-family:'Open Sans';
-    font-style:normal;
-    font-weight:400;
-    src:url('../fonts/open-sans-v34-vietnamese_latin-ext_latin_hebrew_greek-ext_greek_cyrillic-ext_cyrillic-regular.eot');
-    src:url('../fonts/open-sans-v34-vietnamese_latin-ext_latin_hebrew_greek-ext_greek_cyrillic-ext_cyrillic-regular.eot?#iefix') format('embedded-opentype'),url('../fonts/open-sans-v34-vietnamese_latin-ext_latin_hebrew_greek-ext_greek_cyrillic-ext_cyrillic-regular.woff2') format('woff2'),url('../fonts/open-sans-v34-vietnamese_latin-ext_latin_hebrew_greek-ext_greek_cyrillic-ext_cyrillic-regular.woff') format('woff'),url('../fonts/open-sans-v34-vietnamese_latin-ext_latin_hebrew_greek-ext_greek_cyrillic-ext_cyrillic-regular.ttf') format('truetype'),url('../fonts/open-sans-v34-vietnamese_latin-ext_latin_hebrew_greek-ext_greek_cyrillic-ext_cyrillic-regular.svg#OpenSans') format('svg');
-}
-@font-face {
-    font-display:swap;
-    font-family:'Open Sans';
-    font-style:normal;
-    font-weight:700;
-    src:url('../fonts/open-sans-v34-vietnamese_latin-ext_latin_hebrew_greek-ext_greek_cyrillic-ext_cyrillic-700.eot');
-    src:url('../fonts/open-sans-v34-vietnamese_latin-ext_latin_hebrew_greek-ext_greek_cyrillic-ext_cyrillic-700.eot?#iefix') format('embedded-opentype'),url('../fonts/open-sans-v34-vietnamese_latin-ext_latin_hebrew_greek-ext_greek_cyrillic-ext_cyrillic-700.woff2') format('woff2'),url('../fonts/open-sans-v34-vietnamese_latin-ext_latin_hebrew_greek-ext_greek_cyrillic-ext_cyrillic-700.woff') format('woff'),url('../fonts/open-sans-v34-vietnamese_latin-ext_latin_hebrew_greek-ext_greek_cyrillic-ext_cyrillic-700.ttf') format('truetype'),url('../fonts/open-sans-v34-vietnamese_latin-ext_latin_hebrew_greek-ext_greek_cyrillic-ext_cyrillic-700.svg#OpenSans') format('svg');
-}
-@font-face {
-    font-display:swap;
-    font-family:'Open Sans';
-    font-style:normal;
-    font-weight:800;
-    src:url('../fonts/open-sans-v34-vietnamese_latin-ext_latin_hebrew_greek-ext_greek_cyrillic-ext_cyrillic-800.eot');
-    src:url('../fonts/open-sans-v34-vietnamese_latin-ext_latin_hebrew_greek-ext_greek_cyrillic-ext_cyrillic-800.eot?#iefix') format('embedded-opentype'),url('../fonts/open-sans-v34-vietnamese_latin-ext_latin_hebrew_greek-ext_greek_cyrillic-ext_cyrillic-800.woff2') format('woff2'),url('../fonts/open-sans-v34-vietnamese_latin-ext_latin_hebrew_greek-ext_greek_cyrillic-ext_cyrillic-800.woff') format('woff'),url('../fonts/open-sans-v34-vietnamese_latin-ext_latin_hebrew_greek-ext_greek_cyrillic-ext_cyrillic-800.ttf') format('truetype'),url('../fonts/open-sans-v34-vietnamese_latin-ext_latin_hebrew_greek-ext_greek_cyrillic-ext_cyrillic-800.svg#OpenSans') format('svg');
-}
-
-
 /* ==========================================================================
-   SUPER PREMIUM CUSTOM STYLES & ANIMATIONS
+   FAST & CLEAN SLIDE-UP ANIMATIONS (Avatar, Name, Description ONLY)
    ========================================================================== */
 
-/* Page Load Entrance Animation */
-@keyframes fadeInUp {
-    from {
+/* Very fast, clean slide up from the bottom */
+@keyframes fastSlideUp {
+    0% {
         opacity: 0;
-        transform: translateY(30px);
+        transform: translateY(60px); /* Niche se start hoga */
     }
-    to {
+    100% {
         opacity: 1;
-        transform: translateY(0);
+        transform: translateY(0); /* Apni normal jagah par aayega */
     }
 }
 
-/* Avatar with Green Border & Animation */
+/* --- Profile Avatar --- */
 .avatar {
+    width: 8rem;             
+    height: 8rem;
+    border-radius: 50%;
+    object-fit: cover;
+    background-position: center;
+    margin-bottom: var(--spacing-l);
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    
+    /* Green Border */
+    border: 4px solid #4ade80; 
+    padding: 3px;
+    background-color: #ffffff;
+    
+    /* Fast Slide Up */
     opacity: 0;
-    animation: fadeInUp 0.8s ease 0.1s forwards;
-    border: 4px solid #4ade80; /* Smooth green border */
-    padding: 2px;
+    animation: fastSlideUp 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
-/* Premium Profile Name Styling (Gradient + Bold) */
+/* --- Premium Profile Name --- */
 .profile-name {
     font-size: var(--scale-5);
     font-weight: 800;
     margin-bottom: 0.2rem;
     
-    /* Gradient Effect */
+    /* Gradient Color */
     background: linear-gradient(90deg, #2457F5, #7AB8FF);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     
-    /* Page Load Animation */
+    /* Fast Slide Up (Slightly after avatar) */
     opacity: 0;
-    animation: fadeInUp 0.8s ease 0.3s forwards;
+    animation: fastSlideUp 0.5s cubic-bezier(0.16, 1, 0.3, 1) 0.1s forwards;
 }
 
-/* Premium Profile Description Styling */
+/* --- Premium Profile Description --- */
 .profile-desc {
     font-size: 1.125rem;
     font-weight: 500;
-    color: #555555; /* Soft grey text */
+    color: #555555; 
     margin-bottom: 2rem;
     line-height: 1.6;
     
-    /* Page Load Animation */
+    /* Fast Slide Up (Slightly after name) */
     opacity: 0;
-    animation: fadeInUp 0.8s ease 0.5s forwards;
+    animation: fastSlideUp 0.5s cubic-bezier(0.16, 1, 0.3, 1) 0.2s forwards;
 }
 
-/* Button Stack Animation */
-.button-stack {
-    opacity: 0;
-    animation: fadeInUp 0.8s ease 0.7s forwards;
-}
-
-/* Dark Mode Adjustments for Name and Desc */
+/* Dark Mode Adjustments */
 :root.theme-dark .profile-name {
     background: linear-gradient(90deg, #7AB8FF, #ffffff);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
-
 :root.theme-dark .profile-desc {
     color: #cccccc;
 }
 
-/* Animated Gradient Background for Dark Mode */
+/* --- Animated Gradient Background for Dark Mode --- */
 :root.theme-dark body {
     background: linear-gradient(-45deg, #0f172a, #1e1b4b, #000000, #172554);
     background-size: 400% 400%;
